@@ -1,0 +1,70 @@
+/* Basic, accessible styles for the interactive demo */
+
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --accent: #0b74d1;
+  --muted: #666;
+  --error: #c62828;
+  --radius: 8px;
+  --container: 1000px;
+}
+
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:var(--bg); color:#111; }
+.container { max-width: var(--container); margin:0 auto; padding:18px; }
+
+/* Header */
+.site-header { background:var(--card); padding:12px 18px; border-radius:var(--radius); display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:0 4px 14px rgba(0,0,0,0.04); }
+.nav-list { list-style:none; display:flex; gap:12px; padding:0; margin:0; }
+.nav-list a { color:var(--accent); text-decoration:none; font-weight:600; }
+
+/* Buttons */
+button { background:var(--accent); color:white; border:0; padding:8px 12px; cursor:pointer; border-radius:6px; font-weight:700; }
+button.secondary { background:#666; }
+
+/* Sections */
+main > section { margin-top:18px; background:var(--card); padding:16px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.03); }
+h2 { margin-top:0; color:var(--accent); }
+
+/* Task manager */
+.task-controls { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+#task-input { flex:1; padding:8px; border:1px solid #ddd; border-radius:6px; }
+.task-list { margin-top:10px; padding-left:20px; }
+.task-item { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.task-item button { padding:6px 8px; font-size:0.9rem; }
+
+/* Form */
+.form-row { margin-top:10px; }
+.form-row label { display:block; font-weight:700; margin-bottom:6px; }
+.form-row input { width:100%; padding:8px; border:1px solid #ddd; border-radius:6px; }
+.form-actions { margin-top:12px; display:flex; gap:8px; }
+.form-message { margin-top:10px; padding:10px; border-radius:6px; }
+
+/* Errors */
+.error { color:var(--error); font-size:0.95rem; margin-top:6px; }
+
+/* Preview card */
+.preview-card { margin-top:12px; padding:12px; border-radius:8px; background:#f0f6ff; }
+
+/* Footer */
+.site-footer { margin-top:18px; text-align:center; color:var(--muted); }
+
+/* Theme: dark toggle */
+.theme-dark {
+  --bg: #071023;
+  --card: #0b1722;
+  --accent: #0bbfae;
+  --muted: #bfcbd6;
+  --error: #ff8a80;
+  color:var(--muted);
+}
+.theme-dark body { background: var(--bg); color:var(--muted); }
+
+/* Responsive layout */
+@media (min-width:900px) {
+  main { display: grid; grid-template-columns: 1fr 1fr; gap:16px; align-items: start; }
+  #tasks-section { grid-column: 1 / 2; }
+  #form-section { grid-column: 2 / 3; }
+  #preview-section { grid-column: 1 / -1; } /* preview spans both columns */
+}
